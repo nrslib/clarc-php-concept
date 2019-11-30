@@ -16,8 +16,9 @@ class UserCreateController
         $this->inputPort = $inputPort;
     }
 
-    public function interact(UserCreateInteractData $data) {
-        $inputData = new UserCreateInputData($data->name, $data->roleId);
+    public function interact() {
+        // Get request parameter from super globals.
+        $inputData = new UserCreateInputData('test-user', 'test-role-id');
         $this->inputPort->handle($inputData);
     }
 }
